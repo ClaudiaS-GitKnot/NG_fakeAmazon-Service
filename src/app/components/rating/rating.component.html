@@ -1,0 +1,16 @@
+<!-- <div *ngIf="rating" class="card">
+  <div class="card-header">Rating</div>
+  <div class="card-body">
+    <p>Voti: {{ rating.count }}</p>
+    <p>Punteggio: {{ rating.rate }}</p>
+  </div>
+</div> -->
+
+<div *ngIf="rating">
+  <i
+    class="bi"
+    *ngFor="let s of stelle"
+    [ngClass]="{ 'bi-star-fill': rating.rate >= s, 'bi-star': rating.rate < s }"
+  ></i>
+  {{ rating.rate }} ({{ rating.count }} voti)
+</div>
