@@ -6,7 +6,9 @@
       *ngIf="prodotto.rating.rate >= 3"
     />
     <div class="card-body">
-      <h5 class="card-title">{{ prodotto.title }}</h5>
+      <h5 class="card-title">
+        <a [routerLink]="['/prodotto', prodotto.id]">{{ prodotto.title }}</a>
+      </h5>
       <p>Prezzo: {{ prodotto.price | currency }}</p>
       <app-rating [rating]="prodotto.rating"></app-rating>
       <button type="button" class="btn btn-danger" (click)="nonMiInteressa()">

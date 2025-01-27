@@ -1,9 +1,8 @@
 <app-header></app-header>
 <div class="container">
-  <app-categorie></app-categorie>
-  <hr />
-  <app-prodotti-vetrina></app-prodotti-vetrina>
-  <hr />
-  <h4>Cosa pensano di noi</h4>
-  <app-rating [rating]="ratingTrustPilot"></app-rating>
+  <router-outlet></router-outlet>
+  <footer>
+    <h4>Cosa pensano di noi</h4>
+    <app-rating [rating]="ratingTrustPilot"></app-rating>
+  </footer>
 </div>

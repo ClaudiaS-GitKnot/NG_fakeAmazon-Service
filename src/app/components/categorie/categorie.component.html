@@ -3,6 +3,7 @@
     type="button"
     *ngFor="let c of categorie"
     class="btn btn-outline-primary"
+    [routerLink]="['/prodotti', 'categoria', c]"
   >
     {{ c }}
   </button>

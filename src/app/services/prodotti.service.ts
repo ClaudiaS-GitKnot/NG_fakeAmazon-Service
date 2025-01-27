@@ -18,4 +18,14 @@ export class ProdottiService {
       'https://fakestoreapi.com/products/categories'
     );
   }
+
+  getProdottoById(id: number): Observable<Prodotto> {
+    return this.http.get<Prodotto>('https://fakestoreapi.com/products/' + id);
+  }
+
+  getProdottiByCategory(categoria: string): Observable<Prodotto[]> {
+    return this.http.get<Prodotto[]>(
+      'https://fakestoreapi.com/products/category/' + categoria
+    );
+  }
 }
