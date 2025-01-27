@@ -1,14 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Prodotto } from '../../models/prodotto';
-import { PRODOTTI } from '../../data/prodotti';
+import { ProdottiService } from '../../services/prodotti.service';
 
 @Component({
   selector: 'app-prodotti-vetrina',
   templateUrl: './prodotti-vetrina.component.html',
   styleUrl: './prodotti-vetrina.component.css',
 })
-export class ProdottiVetrinaComponent {
-  prodotti: Prodotto[] = PRODOTTI;
+export class ProdottiVetrinaComponent implements OnInit {
+  prodotti: Prodotto[] = [];
+
+  constructor(private prodottoService: ProdottiService) {}
+  ngOnInit(): void {
+    this.prodottoService.getProdotti().subscribe((dati) => {
+      this.prodotti = dati;
+    });
+  }
 
   rimuoviProdotto(prodotto: Prodotto) {
     let i = this.prodotti.indexOf(prodotto);

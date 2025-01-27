@@ -7,6 +7,9 @@ import { ProdottiVetrinaComponent } from './components/prodotti-vetrina/prodotti
 import { ProdottoPreviewComponent } from './components/prodotto-preview/prodotto-preview.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CategorieComponent } from './components/categorie/categorie.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,12 @@ import { RatingComponent } from './components/rating/rating.component';
     ProdottiVetrinaComponent,
     ProdottoPreviewComponent,
     HeaderComponent,
-    RatingComponent
+    RatingComponent,
+    CategorieComponent,
+    SpinnerComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
