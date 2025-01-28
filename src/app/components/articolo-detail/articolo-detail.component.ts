@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Articolo } from '../../models/articolo';
 import { BlogService } from '../../services/blog.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-articolo-detail',
@@ -13,7 +13,8 @@ export class ArticoloDetailComponent implements OnInit {
 
   constructor(
     private blogService: BlogService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('articoloId'));
@@ -21,5 +22,13 @@ export class ArticoloDetailComponent implements OnInit {
     this.blogService
       .getArticoloById(id)
       .subscribe((dati) => (this.articolo = dati));
+  }
+
+  rimuovi() {
+    if (confirm('Sei sicuro?')) {
+      this.blogService
+        .deleteArticolo(this.articolo!.id)
+        .subscribe((dati) => this.router.navigate(['/blog']));
+    }
   }
 }

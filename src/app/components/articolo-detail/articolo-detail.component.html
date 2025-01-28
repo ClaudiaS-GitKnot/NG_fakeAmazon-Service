@@ -2,5 +2,10 @@
   <h1 class="display-3">{{ articolo.title }}</h1>
   <p>{{ articolo.text }}</p>
   <hr />
-  <a [routerLink]="['/blog']">Ritorna al blog</a>
+  <div class="d-flex gap-3">
+    <a [routerLink]="['/blog']" class="btn btn-secondary">Ritorna al blog</a>
+    <button type="button" class="btn btn-danger" (click)="rimuovi()">
+      Rimuovi
+    </button>
+  </div>
 </div>

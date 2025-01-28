@@ -22,4 +22,8 @@ export class BlogService {
   addArticolo(articolo: ArticoloAddDTO): Observable<Articolo> {
     return this.http.post<Articolo>(this.serverBaseUrl + '/articoli', articolo);
   }
+
+  deleteArticolo(id: number): Observable<any> {
+    return this.http.delete(this.serverBaseUrl + '/articoli/' + id);
+  }
 }
