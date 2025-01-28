@@ -1,0 +1,66 @@
+<h1>Nuovo Articolo</h1>
+<hr />
+<!-- Affido ad angular la gestione della form e accedo a tutte le sue caratteristiche tramite variabile template -->
+<form (ngSubmit)="aggiungiArticolo()" #laForm="ngForm">
+  <div class="mb-3">
+    <label for="title" class="form-label">Titolo</label>
+    <input
+      #inputTitle="ngModel"
+      [(ngModel)]="model.title"
+      type="text"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': inputTitle.invalid && inputTitle.dirty,
+        'is-valid': inputTitle.valid && inputTitle.dirty
+      }"
+      id="title"
+      name="title"
+      placeholder="Titolo..."
+      required
+      minlength=""
+      maxlength=""
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="inputTitle.invalid && inputTitle.dirty"
+    >
+      Titolo non valido
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="text" class="form-label">Testo</label>
+    <textarea
+      [(ngModel)]="model.text"
+      #inputText="ngModel"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': inputText.invalid && inputText.dirty,
+        'is-valid': inputText.valid && inputText.dirty
+      }"
+      id="text"
+      name="text"
+      rows="3"
+      required
+      pattern=""
+    ></textarea>
+    <div class="invalid-feedback" *ngIf="inputText.invalid && inputText.dirty">
+      Testo non valido
+    </div>
+  </div>
+  <div class="form-check mb-3">
+    <input
+      [(ngModel)]="model.published"
+      class="form-check-input"
+      type="checkbox"
+      id="published"
+      name="published"
+    />
+    <label class="form-check-label" for="published"> Pubblicato </label>
+  </div>
+  <button [disabled]="laForm.invalid" type="submit" class="btn btn-primary">
+    Salva
+  </button>
+</form>
+<!-- <pre
+  >{{ model | json }}
+</pre> -->

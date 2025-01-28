@@ -1,0 +1,13 @@
+<h3>Blog di Amazon farlocco</h3>
+<hr />
+<a [routerLink]="['/blog', 'nuovo']" class="btn btn-primary mb-3"
+  >Nuovo articolo</a
+>
+<div class="list-group">
+  <a
+    *ngFor="let a of articoli"
+    [routerLink]="['/blog', a.id]"
+    class="list-group-item list-group-item-action"
+    >{{ a.title }}</a
+  >
+</div>

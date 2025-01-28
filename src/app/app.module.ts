@@ -13,6 +13,10 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ContattiComponent } from './components/contatti/contatti.component';
 import { ProdottoDetailComponent } from './components/prodotto-detail/prodotto-detail.component';
 import { ProdottiCategoriaComponent } from './components/prodotti-categoria/prodotti-categoria.component';
+import { ArticoliListComponent } from './components/articoli-list/articoli-list.component';
+import { ArticoloDetailComponent } from './components/articolo-detail/articolo-detail.component';
+import { ArticoloAddComponent } from './components/articolo-add/articolo-add.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,8 +30,11 @@ import { ProdottiCategoriaComponent } from './components/prodotti-categoria/prod
     ContattiComponent,
     ProdottoDetailComponent,
     ProdottiCategoriaComponent,
+    ArticoliListComponent,
+    ArticoloDetailComponent,
+    ArticoloAddComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
